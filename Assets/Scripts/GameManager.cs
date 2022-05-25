@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +12,31 @@ public class GameManager : MonoBehaviour
 
     //Pauses & Controls
     private bool gameIsPaused = true;
-    private bool initTutorial = false;
     public GameObject controls_scheme;
+
+    //Wave
+    private float maxWaves = 10;
+    private float CurrentWave = 1;
+    private float maxEnemies = 2;
+    private float maxSimultaneousEnemies = 2;
+    private float currentEnemiesAlive = 2;
+    public static float killedEnemies = 0;
+    private GameObject[] EnemiesAlive;
+
+    //GUI
+    public TextMeshProUGUI waveGUI;
+    public TextMeshProUGUI EnemiesGUI;
+    public GameObject RetryButton;
+
+
+    //State
+    public bool ActiveWave = true;
+    public static bool setupNewWave = false;
+    public GameObject Powerups;
+
+    //Spawn
+    private GameObject[] SpawnPoints;
+    public GameObject SpawnEnemy;
 
     private void Awake()
     {
@@ -20,23 +45,39 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SpawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
         PauseGame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Mouse0) && initTutorial == false)
-        //{
-        //    gameIsPaused = !gameIsPaused;
-        //    initTutorial = true;
-        //    PauseGame();
-        //}
+
+        if(setupNewWave)
+        {
+            NewWave();
+            PlayerHealth.PHealth = PlayerHealth.maxhealth; //HEAL
+            setupNewWave = false;
+            ActiveWave = true;
+        }
+
+        if (ActiveWave)
+        {
+            ScoreManager();
+            SpawnManager();
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape) || ((Input.GetKeyDown(KeyCode.Mouse0)) && gameIsPaused == true))
         {
             gameIsPaused = !gameIsPaused;
             PauseGame();
+        }
+
+        if(PlayerHealth.PHealth <= 0) //Gameover
+        {
+            waveGUI.text = "GAMEOVER";
+            RetryButton.SetActive(true);
         }
 
     }
@@ -52,5 +93,66 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
             controls_scheme.SetActive(false);
         }
+    }
+
+    void ScoreManager()
+    {
+        EnemiesAlive = GameObject.FindGameObjectsWithTag("Enemy");
+        currentEnemiesAlive = EnemiesAlive.Length;
+        EnemiesGUI.text = "Chickens: " + (killedEnemies) + "/" + maxEnemies;
+
+        waveGUI.text = "Wave " + CurrentWave;
+
+        if (killedEnemies >= maxEnemies && (CurrentWave+1 != maxWaves))
+        {
+            waveGUI.text = "WAVE FINISHED! SELECT DEMONIC RANDOMIZER";
+            ActiveWave = false;
+            Powerups.SetActive(true);
+
+        }
+        else if(killedEnemies >= maxEnemies && (CurrentWave + 1 == maxWaves))
+        {
+            waveGUI.text = "VICTORY! THANKS FOR PLAYING!";
+            ActiveWave = false;
+        }
+    }
+
+    void SpawnManager()
+    {
+        if(currentEnemiesAlive < maxSimultaneousEnemies) //Hay menos vivos que simultaneos permitidos
+        {
+            if(killedEnemies + currentEnemiesAlive < maxEnemies) //Matados+Current es menor que el maximo de wave
+            {
+                //SPAWN ENEMY HERE
+                int spawn = Random.Range(0, SpawnPoints.Length);
+                Debug.Log(SpawnPoints.Length);
+                Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
+            }
+        }
+
+    }
+
+    void NewWave()
+    {
+        killedEnemies = 0;
+        CurrentWave += 1; //Increase wave number
+        maxEnemies += 2; //Increase maximum numbers to beat
+        if (CurrentWave % 2 == 0)
+            maxSimultaneousEnemies += 1; //Every odd round Simulateneous Enemies increase
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ReloadScene()
+    {
+        PlayerHealth.PHealth = 100;
+        RetryButton.SetActive(false);
+        killedEnemies = 0;
+        setupNewWave = false;
+        PlayerHealth.PHealth = PlayerHealth.maxhealth;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

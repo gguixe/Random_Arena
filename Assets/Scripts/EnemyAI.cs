@@ -32,6 +32,9 @@ public class EnemyAI : MonoBehaviour
     public Transform attackPoint;
     public bool allowInvoke = true;
 
+    //Health
+    public float health = 50;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -162,6 +165,17 @@ public class EnemyAI : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
+    }
+
+    public void TakeDamage(float bullet_damage)
+    {
+        health = health - bullet_damage;
+        if (health <= 0)
+        {
+            //DEATH
+            GameManager.killedEnemies = GameManager.killedEnemies + 1;
+            Destroy(gameObject,0);
+        }
     }
 
 }

@@ -67,14 +67,22 @@ public class CustomBullet : MonoBehaviour
         for(int i = 0; i < enemies.Length; i++)
         {
             //Get component of enemy and call Take Damage
-            //ENEMY STILL NOT SCRIPTED
             //Damage
-            //enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage);
+            //Debug.Log("CACA!");
+
+            if (isPlayerbullet == true && enemies != null)
+            {
+                //Debug.Log(enemies[i]);
+                enemies[i].GetComponent<EnemyAI>().TakeDamage(explosionDamage);
+                //Debug.Log("HOLA!");
+            }
+            else
+            {
+                enemies[i].GetComponent<PlayerHealth>().TakeDamage(explosionDamage);
+            }
             //Explosion force
             //if(enemies[i].GetComponent<Rigidbody2D>())
-            //enemies[i].GetComponent<Rigidbody2D>().AddExplosionForce(explosionForce, transform.position, explosionRange);
-
-            //add for each type of bullet (isplayerbullet)
+            //enemies[i].GetComponent<Rigidbody2D>().AddExplosionForce(explosionForce, transform.position, explosionRange);        
         }
 
         //Add a delay & destroy bullet
@@ -94,14 +102,14 @@ public class CustomBullet : MonoBehaviour
         //Explode if bullet hits an enemy direction and explodeOnTouch is activated
         if(isPlayerbullet)
         {
-            if (collision.collider.CompareTag("Enemy") && explodeOnTouch)
+            if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Obstacle") && explodeOnTouch)
             {
                 Explode();
             }
         }
         else
         {
-            if (collision.collider.CompareTag("Player") && explodeOnTouch)
+            if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Obstacle") && explodeOnTouch)
             {
                 Explode();
             }

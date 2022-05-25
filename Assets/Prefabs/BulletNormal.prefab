@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b02e99d4c07e3041b5246de241b4d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerbullet: 0
   rb: {fileID: 1507502164326793543}
   explosion: {fileID: 0}
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   bounciness: 0.8
   useGravity: 0
   explosionDamage: 30
   explosionRange: 1
+  explosionForce: 0
   maxCollisions: 1
   maxLifeTime: 4
   explodeOnTouch: 1
