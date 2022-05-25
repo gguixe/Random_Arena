@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CustomBullet : MonoBehaviour
 {
+    public bool isPlayerbullet = false;
     //Assignables
     public Rigidbody2D rb;
     public GameObject explosion;
@@ -53,6 +54,7 @@ public class CustomBullet : MonoBehaviour
 
     private void Explode()
     {
+        //Debug.Log("BOOM");
         //Explosion
         if (explosion != null)
         {
@@ -70,7 +72,9 @@ public class CustomBullet : MonoBehaviour
             //enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage);
             //Explosion force
             //if(enemies[i].GetComponent<Rigidbody2D>())
-                //enemies[i].GetComponent<Rigidbody2D>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+            //enemies[i].GetComponent<Rigidbody2D>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+
+            //add for each type of bullet (isplayerbullet)
         }
 
         //Add a delay & destroy bullet
@@ -88,7 +92,21 @@ public class CustomBullet : MonoBehaviour
         collisions++;
 
         //Explode if bullet hits an enemy direction and explodeOnTouch is activated
-        if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+        if(isPlayerbullet)
+        {
+            if (collision.collider.CompareTag("Enemy") && explodeOnTouch)
+            {
+                Explode();
+            }
+        }
+        else
+        {
+            if (collision.collider.CompareTag("Player") && explodeOnTouch)
+            {
+                Explode();
+            }
+            //Debug.Log(collision.collider.tag);
+        }
     }
 
     private void OnDrawGizmosSelected()

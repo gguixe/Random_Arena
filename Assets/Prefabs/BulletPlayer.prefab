@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b02e99d4c07e3041b5246de241b4d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerbullet: 1
   rb: {fileID: 6628576598854472863}
   explosion: {fileID: 100014, guid: 5332791ebce075d4a9e56f4581e7fb47, type: 3}
   whatIsEnemies:
@@ -162,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 2710991646153811096, guid: ea9a7c18822597d43a90bd5c019f24c2,
         type: 3}
       propertyPath: m_Name
-      value: BulletExplosive
+      value: BulletPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2710991646153811096, guid: ea9a7c18822597d43a90bd5c019f24c2,
         type: 3}

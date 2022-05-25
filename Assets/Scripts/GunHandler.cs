@@ -71,13 +71,13 @@ public class GunHandler : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         if (readyToShoot)
-        //Shooting
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
-        {
-            //Set bullets shot to 0
-            bulletsShot = 0;
-            Shoot();
-        }
+            //Shooting
+            if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+            {
+                //Set bullets shot to 0
+                bulletsShot = 0;
+                Shoot();
+            }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
