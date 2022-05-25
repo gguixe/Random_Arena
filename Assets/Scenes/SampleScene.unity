@@ -1933,6 +1933,7 @@ MonoBehaviour:
   Powerups: {fileID: 1399467873}
   SpawnEnemy: {fileID: 490413825244548558, guid: 80c0454484cb7794faa88efb392b822c,
     type: 3}
+  PortalEffect: {fileID: 100000, guid: e15f5af5b5f07bd469b5f4f98ed23c39, type: 3}
 --- !u!4 &52570717
 Transform:
   m_ObjectHideFlags: 0

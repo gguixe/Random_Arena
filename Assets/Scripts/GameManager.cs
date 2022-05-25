@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     //Spawn
     private GameObject[] SpawnPoints;
     public GameObject SpawnEnemy;
+    public GameObject PortalEffect;
+    private int spawn;
+    private bool blockSpawn = false;
 
     private void Awake()
     {
@@ -114,6 +117,10 @@ public class GameManager : MonoBehaviour
         {
             waveGUI.text = "VICTORY! THANKS FOR PLAYING!";
             ActiveWave = false;
+            //killedEnemies = 0;
+            //CurrentWave = 20; 
+            //maxEnemies = 100; 
+            //maxSimultaneousEnemies = 100; 
         }
     }
 
@@ -124,13 +131,37 @@ public class GameManager : MonoBehaviour
             if(killedEnemies + currentEnemiesAlive < maxEnemies) //Matados+Current es menor que el maximo de wave
             {
                 //SPAWN ENEMY HERE
-                int spawn = Random.Range(0, SpawnPoints.Length);
-                Debug.Log(SpawnPoints.Length);
+                //Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
+                //if(blockSpawn == false) //Block Spawn until invoked
+                //{
+                //    Invoke("SpawnEnemies", 2.0f);
+                //StartCoroutine(SpawnEnemies(spawn, 2.0f));
+                //}
+                //blockSpawn = true;
+                //Instantiate(PortalEffect, SpawnPoints[spawn].transform.position, Quaternion.identity);
+
+                //SPAWN ENEMY HERE
+                spawn = Random.Range(0, SpawnPoints.Length);
+                Instantiate(PortalEffect, SpawnPoints[spawn].transform.position, Quaternion.identity);
                 Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
             }
         }
 
     }
+
+    //void SpawnEnemies()
+    //{
+    //    spawn = Random.Range(0, SpawnPoints.Length);
+    //    Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
+    //    blockSpawn = false;
+    //}
+
+    //IEnumerator SpawnEnemies(int spawn, float delayTime)
+    //{
+    //    yield return new WaitForSeconds(delayTime);
+    //    Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
+    //    // Now do your thing here
+    //}
 
     void NewWave()
     {
