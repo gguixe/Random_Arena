@@ -88,6 +88,7 @@ public class GunHandler : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
+        FindObjectOfType<SoundManager>().Play("shooting"); //Sound
 
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); //Store instance of bullet
         //Rotate bullet to shoot direction

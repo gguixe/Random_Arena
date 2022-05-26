@@ -105,13 +105,15 @@ public class EnemyAI : MonoBehaviour
 
         if (readyToShoot)
         {
-            muzzleflash.SetActive(false);
+            //muzzleflash.SetActive(false);
         }
     }
 
     private void Shoot()
     {
         readyToShoot = false;
+        FindObjectOfType<SoundManager>().Play("shooting_chicken"); //Sound
+        //muzzleflash.SetActive(true);
 
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); //Store instance of bullet
         //Rotate bullet to shoot direction
@@ -131,7 +133,7 @@ public class EnemyAI : MonoBehaviour
         //    newObject.transform.localScale = new Vector3(0.25f, 0.25f, 1f); // change its local scale in x y z format
         //
         //}
-        muzzleflash.SetActive(true);
+
 
         bulletsLeft--;
         bulletsShot++;

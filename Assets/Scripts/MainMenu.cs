@@ -8,7 +8,12 @@ public class MainMenu : MonoBehaviour
 {
 
     public TextMeshProUGUI creditsText;
+    public GameObject credits_background;
 
+    public void Start()
+    {
+        FindObjectOfType<SoundManager>().Play("chickens"); //Sound/Music
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -21,14 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public void Credits()
     {
-        if(creditsText.enabled == true)
-        {
-            creditsText.enabled = false;
-        }
-        else
-        {
-            creditsText.enabled = true;
-        }
+        creditsText.enabled = !creditsText.enabled;
+        credits_background.SetActive(!credits_background.activeSelf);
     }
-
 }

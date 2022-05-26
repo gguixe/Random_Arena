@@ -31309,6 +31309,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c252f18e403685f488434a1aa6292da7, type: 3}
+--- !u!1 &1214693540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214693542}
+  - component: {fileID: 1214693541}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1214693541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214693540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815994f7431255b4eb1ca7787cf58657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: chickens
+    clip: {fileID: 8300000, guid: d50f87b07b23d68498dae19be509615d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &1214693542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214693540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4236421, y: -1.9708227, z: -131.3608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1238872790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33248,7 +33298,7 @@ RectTransform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 880505678}
-  - {fileID: 2068634043}
+  - {fileID: 2044446272}
   m_Father: {fileID: 2074629077}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33414,6 +33464,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2044446271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044446272}
+  - component: {fileID: 2044446274}
+  - component: {fileID: 2044446273}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2044446272
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044446271}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2068634043}
+  m_Father: {fileID: 1950429647}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -286.10004, y: 75.7}
+  m_SizeDelta: {x: 516.2046, y: 174.65018}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2044446273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044446271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2044446274
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044446271}
+  m_CullTransparentMesh: 0
 --- !u!1 &2068634042
 GameObject:
   m_ObjectHideFlags: 0
@@ -33426,7 +33551,7 @@ GameObject:
   - component: {fileID: 2068634045}
   - component: {fileID: 2068634044}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: CreditsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33443,13 +33568,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.33333328, y: 0.33333328, z: 1}
   m_Children: []
-  m_Father: {fileID: 1950429647}
-  m_RootOrder: 1
+  m_Father: {fileID: 2044446272}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88, y: 60}
-  m_SizeDelta: {x: 350.0141, y: 437.0007}
+  m_AnchoredPosition: {x: -1.3999939, y: 8.5}
+  m_SizeDelta: {x: 1534.2468, y: 462.27216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068634044
 MonoBehaviour:
@@ -33470,27 +33595,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Assets:
+  m_text: 'Assets (Free):
 
-    Daniel Eddeland
+    Daniel Eddeland (https://opengameart.org/users/daneeklu)
 
-    XXXXX XXXXXX
 
-    XXXXX XXXXXX
+    Music
+    (Free):
 
-    XXXXX
-    XXXXXX
+    "Summon the Rawk" Kevin MacLeod (incompetech.com)
 
-    XXXXX XXXXXX
+    Licensed
+    under Creative Commons: By Attribution 4.0 License
 
-    Audio:
-
-    XXXXX XXXXXX
-
-    XXXXX XXXXXX
-
-    XXXXX
-    XXXXXX
+    http://creativecommons.org/licenses/by/4.0/
 
 
 '
@@ -33527,7 +33645,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -33687,6 +33805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsText: {fileID: 2068634044}
+  credits_background: {fileID: 2044446271}
 --- !u!1 &2105156415
 GameObject:
   m_ObjectHideFlags: 0
@@ -33876,7 +33995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "by Gerard Guix\xE9 (Fancy_Skaven)"
+  m_text: "a game by Gerard Guix\xE9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}

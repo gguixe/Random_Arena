@@ -44,12 +44,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        PauseGame();
     }
 
     private void Start()
     {
         SpawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
-        PauseGame();
+        FindObjectOfType<SoundManager>().Play("music"); //Sound/Music
     }
 
     // Update is called once per frame
