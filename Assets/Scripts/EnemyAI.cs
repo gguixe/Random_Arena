@@ -189,21 +189,32 @@ public class EnemyAI : MonoBehaviour
     public void EnemyRandomizer()
     {
         //Sprite Renderer & transform
-        gameObject.transform.localScale = new Vector3(1, 1, 1);
-        SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
-        EnemySprite.sprite = spriteList[0];
+        float RanScale = Random.Range(0.5f, 5f); //Random Scale
+        gameObject.transform.localScale = new Vector3(RanScale, RanScale, 1);
 
-        //Adapt Box collider to size of sprite
+        int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
+        SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
+        EnemySprite.sprite = spriteList[RanSpriteRenderer];
+
+        //Adapt Box collider to size of sprite //That's not random
         Vector2 S = EnemySprite.sprite.bounds.size;
         gameObject.GetComponent<BoxCollider2D>().size = S;
         gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
+
         //Bullet
-        bullet.GetComponent<CustomBullet>().explosionDamage = 10; //Current 10
-        bullet.GetComponent<CustomBullet>().explosionRange = 0.1f; //Current 0.1
-        bullet.GetComponent<CustomBullet>().maxCollisions = 3; //Current 3 (not used)
-        bullet.GetComponent<CustomBullet>().maxLifeTime = 2; //Current 10
-        bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true
-        shootForce = 3;//Current 3
+        int RanExplosionDamage = Random.Range(5, 20); //Random Explosion Damage
+        bullet.GetComponent<CustomBullet>().explosionDamage = RanExplosionDamage; //Current 10
+        float RanExplosionRange = Random.Range(0.1f, 5f); //Random Explosion Range
+        bullet.GetComponent<CustomBullet>().explosionRange = RanExplosionRange; //Current 0.1
+        int RanNumCollisions = Random.Range(1, 10); //Random Explosion Range
+        bullet.GetComponent<CustomBullet>().maxCollisions = RanNumCollisions; //Current 3 (not used)
+        int RanMaxLifeTime = Random.Range(1, 50); //Random Explosion Range
+        bullet.GetComponent<CustomBullet>().maxLifeTime = RanMaxLifeTime; //Current 10
+        int RanExplodeOnTouch = Random.Range(1, 100); //Random Explosion Range
+        bool RanExplodeOnTouchBool;
+        if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
+        bullet.GetComponent<CustomBullet>().explodeOnTouch = RanExplodeOnTouchBool; //Current true
+        shootForce = 3;//Current 3 No Use
         //Gun stats
         timeBetweenShooting = 0.5f; //Current 0.5
         reloadTime = 1.5f; //Current 1.5

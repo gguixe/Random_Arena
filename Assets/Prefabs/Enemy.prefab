@@ -223,9 +223,15 @@ MonoBehaviour:
   bulletsPerTap: 1
   allowButtonHold: 1
   muzzleflash: {fileID: 3018192584431920843}
+  spriteList:
+  - {fileID: -8747096802321733386, guid: 7647221bf90607d45919cdb0c00edcd8, type: 3}
+  - {fileID: -5738210801147870406, guid: 83d2e03cab2ea934dbe954b035b98b75, type: 3}
+  - {fileID: 3014337850785632637, guid: 143cde2d1ed59da4a89fa13142ef54d1, type: 3}
+  - {fileID: 8207710179804543168, guid: d2f35ef2408fb164f9d60354c662a308, type: 3}
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 809716516}
   allowInvoke: 1
+  health: 50
 --- !u!195 &490413825244548552
 NavMeshAgent:
   m_ObjectHideFlags: 0

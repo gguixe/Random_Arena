@@ -15,11 +15,16 @@ public class PlayerHealth : MonoBehaviour
     {
         PHealth = PHealth - bullet_damage;
         health = PHealth;
-        TextHealth.text = "<3 " + PHealth + "/" + maxhealth;
+        update_healthGUI(TextHealth);
         if (PHealth <= 0)
         {
             //DEATH
             gameObject.SetActive(false);
         }
+    }
+
+    public static void update_healthGUI(TextMeshProUGUI TextHealth)
+    {
+        TextHealth.text = "<3 " + PHealth + "/" + maxhealth;
     }
 }

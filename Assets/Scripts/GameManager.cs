@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Cursors
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+
+    //Player
+    public GameObject playerGameObject;
 
     //Pauses & Controls
     private bool gameIsPaused = true;
@@ -27,7 +31,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI waveGUI;
     public TextMeshProUGUI EnemiesGUI;
     public GameObject RetryButton;
-
+    public TextMeshProUGUI TextHealth;
 
     //State
     public bool ActiveWave = true;
@@ -59,8 +63,9 @@ public class GameManager : MonoBehaviour
 
         if(setupNewWave)
         {
-            NewWave();
             PlayerHealth.PHealth = PlayerHealth.maxhealth; //HEAL
+            PlayerHealth.update_healthGUI(TextHealth);
+            NewWave();
             setupNewWave = false;
             ActiveWave = true;
         }
