@@ -2694,7 +2694,7 @@ MonoBehaviour:
   sounds:
   - name: music
     clip: {fileID: 8300000, guid: 289371c5d24c5144d98060a7a7fcbc19, type: 3}
-    volume: 0.15
+    volume: 0.1
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -2709,6 +2709,60 @@ MonoBehaviour:
     volume: 0.5
     pitch: 2.31
     loop: 0
+    source: {fileID: 0}
+  - name: chicken0
+    clip: {fileID: 8300000, guid: f10fe94076181284a8dc682e6888ffca, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken1
+    clip: {fileID: 8300000, guid: 6aca5d115bec340418d337155f60cc76, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken2
+    clip: {fileID: 8300000, guid: 50a2f0aee2b8f2541b436eaf23dff89c, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken3
+    clip: {fileID: 8300000, guid: 28abe37788147ca4fa4c746768ffc1a5, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken4
+    clip: {fileID: 8300000, guid: 0ab5f85a504e5d545886ae5b0c0a8254, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken5
+    clip: {fileID: 8300000, guid: 45088851754a11f43a6631f256339e12, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken6
+    clip: {fileID: 8300000, guid: 4d2e0d9465d822549ae8f15e81ab2281, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: chicken7
+    clip: {fileID: 8300000, guid: a7f577014d48ba74e9c62e42464aa405, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: reload
+    clip: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &495433379
 Transform:

@@ -45,6 +45,9 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string chicken_audio = "chicken" + (Random.Range(0, 7)); //chicken audio to play random
+        FindObjectOfType<SoundManager>().Play(chicken_audio); //Sound
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;

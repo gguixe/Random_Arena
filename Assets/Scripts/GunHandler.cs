@@ -83,12 +83,17 @@ public class GunHandler : MonoBehaviour
         {
             muzzleflash.SetActive(false);
         }
+
+        if(reloading == false) //reload sound
+        {
+            FindObjectOfType<SoundManager>().Stop("reload"); //Audio/Sound
+        }
     }
 
     private void Shoot()
     {
         readyToShoot = false;
-        FindObjectOfType<SoundManager>().Play("shooting"); //Sound
+        FindObjectOfType<SoundManager>().Play("shooting"); //Audio/Sound
 
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); //Store instance of bullet
         //Rotate bullet to shoot direction
@@ -134,6 +139,7 @@ public class GunHandler : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        FindObjectOfType<SoundManager>().Play("reload"); //Audio/Sound
         muzzleflash.SetActive(false);
         Invoke("ReloadFinished", reloadTime);
     }
