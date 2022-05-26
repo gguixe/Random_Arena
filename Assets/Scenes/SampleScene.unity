@@ -23718,6 +23718,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 490413825244548553, guid: 80c0454484cb7794faa88efb392b822c,
+        type: 3}
+      propertyPath: spriteList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 490413825244548553, guid: 80c0454484cb7794faa88efb392b822c,
+        type: 3}
+      propertyPath: spriteList.Array.data[0]
+      value: 
+      objectReference: {fileID: -8747096802321733386, guid: 7647221bf90607d45919cdb0c00edcd8,
+        type: 3}
     - target: {fileID: 490413825244548555, guid: 80c0454484cb7794faa88efb392b822c,
         type: 3}
       propertyPath: m_RootOrder

@@ -27,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     bool shooting, readyToShoot, reloading;
     //Graphics
     public GameObject muzzleflash;
+    public Sprite[] spriteList;
     //Reference
     public Camera fpsCam;
     public Transform attackPoint;
@@ -188,9 +189,9 @@ public class EnemyAI : MonoBehaviour
     public void EnemyRandomizer()
     {
         //Sprite Renderer & transform
-        //gameObject.transform.localScale = XXXX
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
         SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
-        //EnemySprite.sprite = Sprite HERE
+        EnemySprite.sprite = spriteList[0];
 
         //Adapt Box collider to size of sprite
         Vector2 S = EnemySprite.sprite.bounds.size;
