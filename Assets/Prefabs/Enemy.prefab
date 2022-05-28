@@ -93,7 +93,7 @@ Transform:
   m_GameObject: {fileID: 490413825244548558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.182523, y: 1.377, z: 0}
-  m_LocalScale: {x: 2.7566876, y: 2.7566876, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490413825102128823}
   m_Father: {fileID: 0}
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5738210801147870406, guid: 83d2e03cab2ea934dbe954b035b98b75,
+  m_Sprite: {fileID: -8747096802321733386, guid: 7647221bf90607d45919cdb0c00edcd8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -184,18 +184,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.135, y: 0}
+  m_Offset: {x: 0.1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.27, y: 0.63}
+    oldSize: {x: 0.2, y: 0.26}
     newSize: {x: 0.2, y: 0.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27, y: 0.63}
+  m_Size: {x: 0.2, y: 0.26}
   m_EdgeRadius: 0
 --- !u!114 &490413825244548553
 MonoBehaviour:
@@ -214,12 +214,12 @@ MonoBehaviour:
   pivot: {fileID: 490413825102128808}
   attackDistance: 1
   bullet: {fileID: 1678484330601847644, guid: 1de6d63eed7cb2040a47150806c64f61, type: 3}
-  shootForce: 2.0347931
-  timeBetweenShooting: 1.2016535
+  shootForce: 3
+  timeBetweenShooting: 0.89171296
   spread: 3
-  reloadTime: 4.0623364
-  timeBetweenShots: 3.5956254
-  magazineSize: 10
+  reloadTime: 3.2369046
+  timeBetweenShots: 3.3117049
+  magazineSize: 32
   bulletsPerTap: 1
   allowButtonHold: 1
   muzzleflash: {fileID: 3018192584431920843}
@@ -231,7 +231,7 @@ MonoBehaviour:
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 809716516}
   allowInvoke: 1
-  health: 27
+  health: 50
 --- !u!195 &490413825244548552
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 1.9685229
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

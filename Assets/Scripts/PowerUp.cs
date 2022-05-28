@@ -41,6 +41,31 @@ public class PowerUp : MonoBehaviour
             Powerups.SetActive(false);
         }
     }
+
+    public void ClickButton()
+    {
+        //FUNCION RANDOMIZER DEL TIPO ESPECIFICO
+        if (ThisPowerUp == PowerUps.WeaponRandomizer)
+        {
+            player.GetComponent<GunHandler>().GunRandomizer();
+        }
+        else if ((ThisPowerUp == PowerUps.BodyRandomizer))
+        {
+            player.GetComponent<GunHandler>().GraphicRandomizer();
+        }
+        else if ((ThisPowerUp == PowerUps.BulletRandomizer))
+        {
+            player.GetComponent<GunHandler>().BulletRandomizer();
+        }
+        else if ((ThisPowerUp == PowerUps.SuperRandomizer))
+        {
+            player.GetComponent<GunHandler>().GeneralRandomizer();
+        }
+
+
+        GameManager.setupNewWave = true;
+        Powerups.SetActive(false);      
+    }
 }
 
 
