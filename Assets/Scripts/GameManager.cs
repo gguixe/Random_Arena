@@ -26,12 +26,14 @@ public class GameManager : MonoBehaviour
     private float currentEnemiesAlive = 2;
     public static float killedEnemies = 0;
     private GameObject[] EnemiesAlive;
+    bool present = false;
 
     //GUI
     public TextMeshProUGUI waveGUI;
     public TextMeshProUGUI EnemiesGUI;
     public GameObject RetryButton;
     public TextMeshProUGUI TextHealth;
+    public TextMeshProUGUI NextRoundRandomizer;
 
     //State
     public bool ActiveWave = true;
@@ -118,6 +120,34 @@ public class GameManager : MonoBehaviour
             ActiveWave = false;
             Powerups.SetActive(true);
 
+            //NEW PRESENTS
+            float BeelzebubPresent = Random.Range(0, 3);
+            switch (BeelzebubPresent)
+            {
+                case 0: //Weapon
+                    SpawnEnemy.GetComponent<EnemyAI>().GunRandomizer();
+                    NextRoundRandomizer.text = "Beelzebub has granted the chickens new weapons"; //new weapons
+                    present = true;
+                    break;
+                case 1: //Bullets
+                    SpawnEnemy.GetComponent<EnemyAI>().BulletRandomizer();
+                    NextRoundRandomizer.text = "Beelzebub has granted the chickens new bullets"; //new bullets
+                    present = true;
+                    break;
+                case 2: //Body
+                    SpawnEnemy.GetComponent<EnemyAI>().GraphicRandomizer();
+                    NextRoundRandomizer.text = "Beelzebub has granted the chickens new bodies"; //new bodies
+                    present = true;
+                    break;
+                case 3: //All
+                    SpawnEnemy.GetComponent<EnemyAI>().GeneralRandomizer();
+                    NextRoundRandomizer.text = "Beelzebub has granted the chickens all the presents"; //new all
+                    present = true;
+                    break;
+                default:
+                    break;
+            }
+
         }
         else if(killedEnemies >= maxEnemies && (CurrentWave + 1 == maxWaves))
         {
@@ -148,6 +178,13 @@ public class GameManager : MonoBehaviour
 
                 //SPAWN ENEMY HERE
                 spawn = Random.Range(0, SpawnPoints.Length);
+
+                if (Vector3.Distance(SpawnPoints[spawn].transform.position, playerGameObject.transform.position) <= 2) //If player too close to spawn, spawn elsewhere
+                {
+                    spawn = spawn + 1;
+                    if (spawn == SpawnPoints.Length + 1) spawn = 0;
+                }
+
                 Instantiate(PortalEffect, SpawnPoints[spawn].transform.position, Quaternion.identity);
                 Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
             }
@@ -176,6 +213,8 @@ public class GameManager : MonoBehaviour
         maxEnemies += 2; //Increase maximum numbers to beat
         if (CurrentWave % 2 == 0)
             maxSimultaneousEnemies += 1; //Every odd round Simulateneous Enemies increase
+        present = false;
+        NextRoundRandomizer.text = "";
     }
 
     public void QuitGame()

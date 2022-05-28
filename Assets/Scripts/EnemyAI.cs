@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemyRandomizer();
+        //GeneralRandomizer();
 
         string chicken_audio = "chicken" + (Random.Range(0, 7)); //chicken audio to play random
         FindObjectOfType<SoundManager>().Play(chicken_audio); //Sound
@@ -186,7 +186,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void EnemyRandomizer()
+    public void GeneralRandomizer()
+    {
+        GraphicRandomizer();
+        BulletRandomizer();
+        GunRandomizer();
+    }
+
+    public void GraphicRandomizer()
     {
         //Sprite Renderer & transform
         float RanScale = Random.Range(0.5f, 5f); //Random Scale
@@ -201,7 +208,11 @@ public class EnemyAI : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().size = S;
         gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
 
-        //Bullet
+    }
+
+    public void BulletRandomizer()
+    {
+        //Bullet Stats
         int RanExplosionDamage = Random.Range(5, 20); //Random Explosion Damage
         bullet.GetComponent<CustomBullet>().explosionDamage = RanExplosionDamage; //Current 10
         float RanExplosionRange = Random.Range(0.1f, 5f); //Random Explosion Range
@@ -214,12 +225,22 @@ public class EnemyAI : MonoBehaviour
         bool RanExplodeOnTouchBool;
         if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
         bullet.GetComponent<CustomBullet>().explodeOnTouch = RanExplodeOnTouchBool; //Current true
-        shootForce = 3;//Current 3 No Use
+        int RanshootForce = Random.Range(0, 3); //Random Shoot force
+        shootForce = RanshootForce;//Current 3 No Use
+    }
+
+    public void GunRandomizer()
+    {
         //Gun stats
-        timeBetweenShooting = 0.5f; //Current 0.5
-        reloadTime = 1.5f; //Current 1.5
-        timeBetweenShots = 2f; //Current 2
-        magazineSize = 50; //Current 50
-        bulletsPerTap = 1; //Current 1
+        float RantimeBetweenShooting = Random.Range(0.25f, 1.5f);
+        timeBetweenShooting = RantimeBetweenShooting; //Current 0.5
+        float RanreloadTime = Random.Range(0.5f, 3f);
+        reloadTime = RanreloadTime; //Current 1.5
+        float RantimeBetweenShots = Random.Range(0.5f, 5);
+        timeBetweenShots = RantimeBetweenShots; //Current 2
+        int RanmagazineSize = Random.Range(10, 100);
+        magazineSize = RanmagazineSize; //Current 50
+        int RanbulletsPerTap = Random.Range(1, 3);
+        bulletsPerTap = RanbulletsPerTap; //Current 1
     }
 }
