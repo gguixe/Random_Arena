@@ -215,12 +215,12 @@ MonoBehaviour:
   attackDistance: 1
   bullet: {fileID: 1678484330601847644, guid: 1de6d63eed7cb2040a47150806c64f61, type: 3}
   shootForce: 3
-  timeBetweenShooting: 0.29377618
+  timeBetweenShooting: 0.5
   spread: 3
-  reloadTime: 1.2102252
-  timeBetweenShots: 2.69958
-  magazineSize: 55
-  bulletsPerTap: 2
+  reloadTime: 1.5
+  timeBetweenShots: 2
+  magazineSize: 50
+  bulletsPerTap: 1
   allowButtonHold: 1
   muzzleflash: {fileID: 3018192584431920843}
   spriteList:

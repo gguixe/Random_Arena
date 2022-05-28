@@ -34,8 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject RetryButton;
     public TextMeshProUGUI TextHealth;
     public TextMeshProUGUI NextRoundRandomizer;
-    public TextMeshProUGUI InstructionsGUI;
-    public GameObject ExitButton;
+    public TextMeshProUGUI StartButtonTextGUI;
 
     //State
     public bool ActiveWave = true;
@@ -96,9 +95,10 @@ public class GameManager : MonoBehaviour
         //}
         //else
         //{
-        if (Input.GetKeyDown(KeyCode.Escape) || ((Input.GetKeyDown(KeyCode.Mouse0)) && gameIsPaused == true))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameIsPaused = !gameIsPaused;
+            StartButtonTextGUI.text = "RESUME";
             PauseGame();
         }
         //}
@@ -238,6 +238,13 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        gameIsPaused = !gameIsPaused;
+        PauseGame();
+        StartButtonTextGUI.text = "RESUME";
     }
 
     public void ReloadScene()
