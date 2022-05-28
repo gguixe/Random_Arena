@@ -170,6 +170,13 @@ public class GunHandler : MonoBehaviour
         //Sprite Renderer & transform
         float RanScale = Random.Range(0.5f, 5f); //Random Scale
         gameObject.transform.localScale = new Vector3(RanScale, RanScale, 1);
+        //Speed
+        float RanSpeed = Random.Range(1.5f, 3f); //Random Scale
+        gameObject.GetComponent<PlayerMovement>().speed = RanSpeed;
+        //Health
+        float RanHealth = Random.Range(80, 120); //Random Scale
+        PlayerHealth.maxhealth = RanHealth;
+        PlayerHealth.PHealth = RanHealth;
 
         //int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
         //SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
@@ -221,6 +228,9 @@ public class GunHandler : MonoBehaviour
     {
         //Body Stats
         gameObject.transform.localScale = new Vector3(1, 1, 1);
+        gameObject.GetComponent<PlayerMovement>().speed = 2;
+        PlayerHealth.maxhealth = 100;
+        PlayerHealth.PHealth = 100;
         //Bullet Stats
         bullet.GetComponent<CustomBullet>().explosionDamage = 25; //Current 10
         bullet.GetComponent<CustomBullet>().explosionRange = 0.5f; //Current 0.1

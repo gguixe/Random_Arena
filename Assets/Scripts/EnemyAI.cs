@@ -206,6 +206,14 @@ public class EnemyAI : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().size = S;
         gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
 
+        //Health
+        int RanHealth = Random.Range(10, 100); //Random Sprite
+        health = RanHealth;
+
+        //Speed
+        float RanSpeed = Random.Range(1, 2); //Random Sprite
+        gameObject.GetComponent<NavMeshAgent>().speed = RanSpeed;
+
     }
 
     public void BulletRandomizer()
@@ -248,6 +256,8 @@ public class EnemyAI : MonoBehaviour
         gameObject.transform.localScale = new Vector3(1, 1, 1);
         SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
         EnemySprite.sprite = spriteList[0];
+        health = 50;
+        gameObject.GetComponent<NavMeshAgent>().speed = 1;
         Vector2 S = EnemySprite.sprite.bounds.size;
         gameObject.GetComponent<BoxCollider2D>().size = S;
         gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
