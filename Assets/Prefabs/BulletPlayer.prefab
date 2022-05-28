@@ -145,8 +145,8 @@ MonoBehaviour:
   explosionDamage: 25
   explosionRange: 0.5
   explosionForce: 0
-  maxCollisions: 10
-  maxLifeTime: 4
+  maxCollisions: 3
+  maxLifeTime: 10
   explodeOnTouch: 1
 --- !u!1001 &7866518493284470515
 PrefabInstance:

@@ -24571,6 +24571,11 @@ PrefabInstance:
       propertyPath: ammunitionDisplay
       value: 
       objectReference: {fileID: 684795783}
+    - target: {fileID: 460428580530282457, guid: 735114ba1cffbc64ca783c3a9448ae86,
+        type: 3}
+      propertyPath: timeBetweenShooting
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 460428580530282460, guid: 735114ba1cffbc64ca783c3a9448ae86,
         type: 3}
       propertyPath: m_Size.y

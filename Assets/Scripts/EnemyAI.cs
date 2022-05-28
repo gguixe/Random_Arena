@@ -35,6 +35,8 @@ public class EnemyAI : MonoBehaviour
 
     //Health
     public float health = 50;
+    //Randomizer
+    int RanWeight;
 
     private void Awake()
     {
@@ -194,7 +196,9 @@ public class EnemyAI : MonoBehaviour
     public void GraphicRandomizer()
     {
         //Sprite Renderer & transform
-        float RanScale = Random.Range(0.5f, 5f); //Random Scale
+        RanWeight = Random.Range(1, 100);  //1-100%
+        float RanScale;
+        if (RanWeight >= 90) RanScale = Random.Range(0.5f, 0.7f); else if (RanWeight < 90 && RanWeight > 80) RanScale = Random.Range(4f, 6f); else RanScale = Random.Range(1f, 3f);
         gameObject.transform.localScale = new Vector3(RanScale, RanScale, 1);
 
         int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
@@ -207,11 +211,11 @@ public class EnemyAI : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
 
         //Health
-        int RanHealth = Random.Range(10, 100); //Random Sprite
+        int RanHealth = Random.Range(10, 50); //Random Sprite
         health = RanHealth;
 
         //Speed
-        float RanSpeed = Random.Range(1, 2); //Random Sprite
+        float RanSpeed = Random.Range(0.5f, 2); //Random Sprite
         gameObject.GetComponent<NavMeshAgent>().speed = RanSpeed;
 
     }
@@ -221,17 +225,17 @@ public class EnemyAI : MonoBehaviour
         //Bullet Stats
         int RanExplosionDamage = Random.Range(5, 20); //Random Explosion Damage
         bullet.GetComponent<CustomBullet>().explosionDamage = RanExplosionDamage; //Current 10
-        float RanExplosionRange = Random.Range(0.1f, 5f); //Random Explosion Range
+        float RanExplosionRange = Random.Range(0.1f, 1.5f); //Random Explosion Range
         bullet.GetComponent<CustomBullet>().explosionRange = RanExplosionRange; //Current 0.1
         int RanNumCollisions = Random.Range(1, 10); //Random Explosion Range
         bullet.GetComponent<CustomBullet>().maxCollisions = RanNumCollisions; //Current 3 (not used)
-        int RanMaxLifeTime = Random.Range(1, 50); //Random Explosion Range
+        float RanMaxLifeTime = Random.Range(0.5f, 5f); //Random Explosion Range
         bullet.GetComponent<CustomBullet>().maxLifeTime = RanMaxLifeTime; //Current 10
         int RanExplodeOnTouch = Random.Range(1, 100); //Random Explosion Range
         bool RanExplodeOnTouchBool;
         if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
-        bullet.GetComponent<CustomBullet>().explodeOnTouch = RanExplodeOnTouchBool; //Current true
-        int RanshootForce = Random.Range(2, 8); //Random Shoot force
+        bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true //ALWAYS TRUE FOR NOW
+        float RanshootForce = Random.Range(0.5f, 5); //Random Shoot force
         shootForce = RanshootForce;//Current 3 No Use
     }
 
@@ -240,13 +244,13 @@ public class EnemyAI : MonoBehaviour
         //Gun stats
         float RantimeBetweenShooting = Random.Range(0.25f, 1.5f);
         timeBetweenShooting = RantimeBetweenShooting; //Current 0.5
-        float RanreloadTime = Random.Range(0.5f, 3f);
+        float RanreloadTime = Random.Range(3f, 5f);
         reloadTime = RanreloadTime; //Current 1.5
-        float RantimeBetweenShots = Random.Range(0.5f, 5);
+        float RantimeBetweenShots = Random.Range(0.5f, 5); //Doesn't matter
         timeBetweenShots = RantimeBetweenShots; //Current 2
-        int RanmagazineSize = Random.Range(10, 100);
+        int RanmagazineSize = Random.Range(10, 50);
         magazineSize = RanmagazineSize; //Current 50
-        int RanbulletsPerTap = Random.Range(1, 3);
+        int RanbulletsPerTap = Random.Range(1, 1);
         bulletsPerTap = RanbulletsPerTap; //Current 1
     }
 

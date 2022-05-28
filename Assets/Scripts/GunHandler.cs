@@ -36,6 +36,9 @@ public class GunHandler : MonoBehaviour
     public TextMeshProUGUI ammunitionDisplay;
     public Sprite[] spriteList;
 
+    //Randomizer
+    int RanWeight;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -168,13 +171,17 @@ public class GunHandler : MonoBehaviour
     public void GraphicRandomizer()
     {
         //Sprite Renderer & transform
-        float RanScale = Random.Range(0.5f, 5f); //Random Scale
+        RanWeight = Random.Range(1, 100);  //1-100%
+        float RanScale;
+        if (RanWeight >= 90) RanScale = Random.Range(0.5f, 0.7f); else if (RanWeight < 90 && RanWeight > 80) RanScale = Random.Range(3f, 4f); else RanScale = Random.Range(0.8f, 1.8f);
         gameObject.transform.localScale = new Vector3(RanScale, RanScale, 1);
         //Speed
-        float RanSpeed = Random.Range(1.5f, 3f); //Random Scale
+        RanWeight = Random.Range(1, 100);  //1-100%
+        float RanSpeed;
+        if (RanWeight > 80) RanSpeed = Random.Range(5f, 8f); else RanSpeed = Random.Range(1.5f, 5f); //90% Explode on Touch
         gameObject.GetComponent<PlayerMovement>().speed = RanSpeed;
         //Health
-        float RanHealth = Random.Range(80, 120); //Random Scale
+        float RanHealth = Random.Range(80, 200); //Random Scale
         PlayerHealth.maxhealth = RanHealth;
         PlayerHealth.PHealth = RanHealth;
 
@@ -193,34 +200,37 @@ public class GunHandler : MonoBehaviour
     public void BulletRandomizer()
     {
         //Bullet Stats
-        int RanExplosionDamage = Random.Range(5, 20); //Random Explosion Damage
+        int RanExplosionDamage = Random.Range(20, 200); //Random Explosion Damage
         bullet.GetComponent<CustomBullet>().explosionDamage = RanExplosionDamage; //Current 10
-        float RanExplosionRange = Random.Range(0.1f, 5f); //Random Explosion Range
+        float RanExplosionRange = Random.Range(0.2f, 2f); //Random Explosion Range
         bullet.GetComponent<CustomBullet>().explosionRange = RanExplosionRange; //Current 0.1
-        int RanNumCollisions = Random.Range(1, 10); //Random Explosion Range
+        int RanNumCollisions = Random.Range(1, 10); //Random RanNumCollisions
         bullet.GetComponent<CustomBullet>().maxCollisions = RanNumCollisions; //Current 3 (not used)
-        int RanMaxLifeTime = Random.Range(1, 50); //Random Explosion Range
+        float RanMaxLifeTime = Random.Range(0.5f, 10); //Random RanMaxLifeTime
         bullet.GetComponent<CustomBullet>().maxLifeTime = RanMaxLifeTime; //Current 10
-        int RanExplodeOnTouch = Random.Range(1, 100); //Random Explosion Range
+        int RanExplodeOnTouch = Random.Range(1, 100); //Random RanExplodeOnTouch
         bool RanExplodeOnTouchBool;
-        if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
+        if (RanExplodeOnTouch > 80) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
         bullet.GetComponent<CustomBullet>().explodeOnTouch = RanExplodeOnTouchBool; //Current true
-        int RanshootForce = Random.Range(2, 10); //Random Shoot force
+        RanWeight = Random.Range(1, 100);  //1-100%
+        float RanshootForce;
+        if (RanWeight >= 80) RanshootForce = Random.Range(10, 20); else if (RanWeight < 80 && RanWeight > 70) RanshootForce = Random.Range(1, 2); else RanshootForce = Random.Range(3, 5);
+        //int RanshootForce = Random.Range(1, 10); //Random Shoot force //From other set of variables but anyway
         shootForce = RanshootForce;//Current 3 
     }
 
     public void GunRandomizer()
     {
         //Gun stats
-        float RantimeBetweenShooting = Random.Range(0.25f, 1.5f);
+        float RantimeBetweenShooting = Random.Range(0.05f, 0.4f);
         timeBetweenShooting = RantimeBetweenShooting; //Current 0.5
-        float RanreloadTime = Random.Range(0.5f, 3f);
+        float RanreloadTime = Random.Range(0.5f, 2f);
         reloadTime = RanreloadTime; //Current 1.5
-        float RantimeBetweenShots = Random.Range(0.5f, 5);
+        float RantimeBetweenShots = Random.Range(2f, 2f); //Not affected with bulletsPerTap = 1
         timeBetweenShots = RantimeBetweenShots; //Current 2
-        int RanmagazineSize = Random.Range(10, 100);
+        int RanmagazineSize = Random.Range(50, 350);
         magazineSize = RanmagazineSize; //Current 50
-        int RanbulletsPerTap = Random.Range(1, 3);
+        int RanbulletsPerTap = Random.Range(1, 1); //Bullets per tap always 1
         bulletsPerTap = RanbulletsPerTap; //Current 1
     }
 
@@ -239,7 +249,7 @@ public class GunHandler : MonoBehaviour
         bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true
         shootForce = 5;//Current 3 
         //Gun stats
-        timeBetweenShooting = 0.1f; //Current 0.5
+        timeBetweenShooting = 0.25f; //Current 0.5
         reloadTime = 1.5f; //Current 1.5
         timeBetweenShots = 0.3f; //Current 2
         magazineSize = 100; //Current 50
