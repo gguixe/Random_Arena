@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject controls_scheme;
 
     //Wave
-    private float maxWaves = 10;
+    private float maxWaves = 11;
     private float CurrentWave = 1;
     private float maxEnemies = 2;
     private float maxSimultaneousEnemies = 2;
@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if(killedEnemies >= maxEnemies && (CurrentWave + 1 == maxWaves))
+        else if(killedEnemies >= maxEnemies && (CurrentWave+1 == maxWaves))
         {
             waveGUI.text = "VICTORY! THANKS FOR PLAYING!";
             ActiveWave = false;
