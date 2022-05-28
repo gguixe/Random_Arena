@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public GameObject RetryButton;
     public TextMeshProUGUI TextHealth;
     public TextMeshProUGUI NextRoundRandomizer;
+    public TextMeshProUGUI InstructionsGUI;
+    public GameObject ExitButton;
 
     //State
     public bool ActiveWave = true;
@@ -47,6 +49,9 @@ public class GameManager : MonoBehaviour
     private int spawn;
     private bool blockSpawn = false;
 
+    //Listener
+    private UIHoverListener uiListener;
+
     private void Awake()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
@@ -57,6 +62,13 @@ public class GameManager : MonoBehaviour
     {
         SpawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
         FindObjectOfType<SoundManager>().Play("music"); //Sound/Music
+
+        //Set variables of prefabs to default values
+        SpawnEnemy.GetComponent<EnemyAI>().DefaultVariables();
+        playerGameObject.GetComponent<GunHandler>().DefaultVariables();
+
+        //Listener
+        uiListener = GameObject.Find("Exit button").GetComponent<UIHoverListener>();
     }
 
     // Update is called once per frame
@@ -78,12 +90,18 @@ public class GameManager : MonoBehaviour
             SpawnManager();
         }
 
-
+        //if (uiListener.isUIOverride)
+        //{
+        //    Debug.Log("Cancelled OnMouseDown! A UI element has override this object!");
+        //}
+        //else
+        //{
         if (Input.GetKeyDown(KeyCode.Escape) || ((Input.GetKeyDown(KeyCode.Mouse0)) && gameIsPaused == true))
         {
             gameIsPaused = !gameIsPaused;
             PauseGame();
         }
+        //}
 
         if(PlayerHealth.PHealth <= 0) //Gameover
         {
@@ -116,7 +134,7 @@ public class GameManager : MonoBehaviour
 
         if (killedEnemies >= maxEnemies && (CurrentWave+1 != maxWaves))
         {
-            waveGUI.text = "WAVE FINISHED! SELECT DEMONIC RANDOMIZER";
+            waveGUI.text = "WAVE FINISHED! PICK DEMONIC RANDOMIZER";
             ActiveWave = false;
             Powerups.SetActive(true);
 
@@ -226,6 +244,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerHealth.PHealth = 100;
         RetryButton.SetActive(false);
+        SpawnEnemy.GetComponent<EnemyAI>().DefaultVariables();
+        playerGameObject.GetComponent<GunHandler>().DefaultVariables();
         killedEnemies = 0;
         setupNewWave = false;
         PlayerHealth.PHealth = PlayerHealth.maxhealth;

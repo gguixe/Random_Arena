@@ -43,7 +43,6 @@ public class GunHandler : MonoBehaviour
         readyToShoot = true;
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -196,11 +195,11 @@ public class GunHandler : MonoBehaviour
         int RanMaxLifeTime = Random.Range(1, 50); //Random Explosion Range
         bullet.GetComponent<CustomBullet>().maxLifeTime = RanMaxLifeTime; //Current 10
         int RanExplodeOnTouch = Random.Range(1, 100); //Random Explosion Range
-        //bool RanExplodeOnTouchBool;
-        //if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
-        bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true
-        int RanshootForce = Random.Range(0, 3); //Random Shoot force
-        shootForce = RanshootForce;//Current 3 No Use
+        bool RanExplodeOnTouchBool;
+        if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
+        bullet.GetComponent<CustomBullet>().explodeOnTouch = RanExplodeOnTouchBool; //Current true
+        int RanshootForce = Random.Range(2, 10); //Random Shoot force
+        shootForce = RanshootForce;//Current 3 
     }
 
     public void GunRandomizer()
@@ -216,5 +215,24 @@ public class GunHandler : MonoBehaviour
         magazineSize = RanmagazineSize; //Current 50
         int RanbulletsPerTap = Random.Range(1, 3);
         bulletsPerTap = RanbulletsPerTap; //Current 1
+    }
+
+    public void DefaultVariables()
+    {
+        //Body Stats
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        //Bullet Stats
+        bullet.GetComponent<CustomBullet>().explosionDamage = 25; //Current 10
+        bullet.GetComponent<CustomBullet>().explosionRange = 0.5f; //Current 0.1
+        bullet.GetComponent<CustomBullet>().maxCollisions = 3; //Current 3 (not used)
+        bullet.GetComponent<CustomBullet>().maxLifeTime = 10; //Current 10
+        bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true
+        shootForce = 5;//Current 3 
+        //Gun stats
+        timeBetweenShooting = 0.1f; //Current 0.5
+        reloadTime = 1.5f; //Current 1.5
+        timeBetweenShots = 0.3f; //Current 2
+        magazineSize = 100; //Current 50
+        bulletsPerTap = 1; //Current 1
     }
 }

@@ -212,7 +212,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -10.227279, y: 0, z: 14.239867, w: 0}
+  m_margin: {x: -10.227279, y: 0, z: 14.239867, w: -138.05862}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1932,6 +1932,8 @@ MonoBehaviour:
   RetryButton: {fileID: 690124948}
   TextHealth: {fileID: 433609352}
   NextRoundRandomizer: {fileID: 882034270}
+  InstructionsGUI: {fileID: 1091564009}
+  ExitButton: {fileID: 1317833504}
   ActiveWave: 1
   Powerups: {fileID: 1399467873}
   SpawnEnemy: {fileID: 490413825244548558, guid: 80c0454484cb7794faa88efb392b822c,
@@ -2096,9 +2098,10 @@ GameObject:
   - component: {fileID: 107382052}
   - component: {fileID: 107382051}
   - component: {fileID: 107382050}
+  - component: {fileID: 107382054}
   m_Layer: 0
   m_Name: weapon_powerup
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2208,6 +2211,32 @@ Transform:
   m_Father: {fileID: 1399467874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &107382054
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107382049}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.12}
+  m_EdgeRadius: 0
 --- !u!1 &142401784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,9 +2412,10 @@ GameObject:
   - component: {fileID: 233565291}
   - component: {fileID: 233565290}
   - component: {fileID: 233565289}
+  - component: {fileID: 233565292}
   m_Layer: 0
   m_Name: 'super_powerup '
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2495,6 +2525,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &233565292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233565287}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.12}
+  m_EdgeRadius: 0
 --- !u!1 &277684343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,7 +3378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 410}
+  m_AnchoredPosition: {x: 0, y: 369}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690124950
@@ -3669,8 +3725,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 641.0228, y: 656.9397}
+  m_AnchoredPosition: {x: 0, y: -11}
+  m_SizeDelta: {x: 1088.7799, y: 559.92566}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091564009
 MonoBehaviour:
@@ -3701,7 +3757,7 @@ MonoBehaviour:
     R
     - RELOAD
 
-    ESCAPE - PAUSE
+    ESC - PAUSE/UNPAUSE
 
 
     CLICK TO START
@@ -4894,6 +4950,7 @@ GameObject:
   - component: {fileID: 1317833508}
   - component: {fileID: 1317833507}
   - component: {fileID: 1317833506}
+  - component: {fileID: 1317833509}
   m_Layer: 5
   m_Name: Exit button
   m_TagString: Untagged
@@ -4908,9 +4965,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317833504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2587, y: 2.2587, z: 2.2587}
+  m_LocalScale: {x: 2.2586997, y: 2.2586997, z: 2.2586997}
   m_Children:
   - {fileID: 104104919}
   m_Father: {fileID: 1091564008}
@@ -5012,6 +5069,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317833504}
   m_CullTransparentMesh: 0
+--- !u!114 &1317833509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317833504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524b71aaf5e35d648a376dbdb3025dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1338390150
 GameObject:
   m_ObjectHideFlags: 0
@@ -17154,9 +17223,10 @@ GameObject:
   - component: {fileID: 1500030958}
   - component: {fileID: 1500030957}
   - component: {fileID: 1500030956}
+  - component: {fileID: 1500030959}
   m_Layer: 0
   m_Name: body_powerup
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17266,6 +17336,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1500030959
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500030954}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.12}
+  m_EdgeRadius: 0
 --- !u!1 &1563355460
 GameObject:
   m_ObjectHideFlags: 0
@@ -17544,7 +17640,7 @@ PrefabInstance:
     - target: {fileID: 490413825244548557, guid: 80c0454484cb7794faa88efb392b822c,
         type: 3}
       propertyPath: m_Mass
-      value: 0.0945
+      value: 0.051999997
       objectReference: {fileID: 0}
     - target: {fileID: 490413825244548558, guid: 80c0454484cb7794faa88efb392b822c,
         type: 3}
@@ -17664,9 +17760,10 @@ GameObject:
   - component: {fileID: 1944535323}
   - component: {fileID: 1944535322}
   - component: {fileID: 1944535321}
+  - component: {fileID: 1944535324}
   m_Layer: 0
   m_Name: bullet_powerup
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17776,6 +17873,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1944535324
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944535319}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.12}
+  m_EdgeRadius: 0
 --- !u!1 &1993477969
 GameObject:
   m_ObjectHideFlags: 0
@@ -24306,7 +24429,7 @@ PrefabInstance:
     - target: {fileID: 490413825244548557, guid: 80c0454484cb7794faa88efb392b822c,
         type: 3}
       propertyPath: m_Mass
-      value: 0.0945
+      value: 0.051999997
       objectReference: {fileID: 0}
     - target: {fileID: 490413825244548558, guid: 80c0454484cb7794faa88efb392b822c,
         type: 3}

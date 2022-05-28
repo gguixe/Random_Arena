@@ -184,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.105, y: 0}
+  m_Offset: {x: 0.1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21, y: 0.45}
+  m_Size: {x: 0.2, y: 0.26}
   m_EdgeRadius: 0
 --- !u!114 &490413825244548553
 MonoBehaviour:
@@ -214,13 +214,13 @@ MonoBehaviour:
   pivot: {fileID: 490413825102128808}
   attackDistance: 1
   bullet: {fileID: 1678484330601847644, guid: 1de6d63eed7cb2040a47150806c64f61, type: 3}
-  shootForce: 0
-  timeBetweenShooting: 0.5
+  shootForce: 3
+  timeBetweenShooting: 0.29377618
   spread: 3
-  reloadTime: 1.5
-  timeBetweenShots: 2
-  magazineSize: 50
-  bulletsPerTap: 1
+  reloadTime: 1.2102252
+  timeBetweenShots: 2.69958
+  magazineSize: 55
+  bulletsPerTap: 2
   allowButtonHold: 1
   muzzleflash: {fileID: 3018192584431920843}
   spriteList:

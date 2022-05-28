@@ -46,8 +46,6 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GeneralRandomizer();
-
         string chicken_audio = "chicken" + (Random.Range(0, 7)); //chicken audio to play random
         FindObjectOfType<SoundManager>().Play(chicken_audio); //Sound
 
@@ -225,7 +223,7 @@ public class EnemyAI : MonoBehaviour
         bool RanExplodeOnTouchBool;
         if (RanExplodeOnTouch > 90) RanExplodeOnTouchBool = true; else RanExplodeOnTouchBool = false; //90% Explode on Touch
         bullet.GetComponent<CustomBullet>().explodeOnTouch = RanExplodeOnTouchBool; //Current true
-        int RanshootForce = Random.Range(0, 3); //Random Shoot force
+        int RanshootForce = Random.Range(2, 8); //Random Shoot force
         shootForce = RanshootForce;//Current 3 No Use
     }
 
@@ -242,5 +240,29 @@ public class EnemyAI : MonoBehaviour
         magazineSize = RanmagazineSize; //Current 50
         int RanbulletsPerTap = Random.Range(1, 3);
         bulletsPerTap = RanbulletsPerTap; //Current 1
+    }
+
+    public void DefaultVariables()
+    {
+        //Body Stats
+        gameObject.transform.localScale = new Vector3(1, 1, 1);
+        SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
+        EnemySprite.sprite = spriteList[0];
+        Vector2 S = EnemySprite.sprite.bounds.size;
+        gameObject.GetComponent<BoxCollider2D>().size = S;
+        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
+        //Bullet Stats
+        bullet.GetComponent<CustomBullet>().explosionDamage = 10; //Current 10
+        bullet.GetComponent<CustomBullet>().explosionRange = 0.1f; //Current 0.1
+        bullet.GetComponent<CustomBullet>().maxCollisions = 3; //Current 3 (not used)
+        bullet.GetComponent<CustomBullet>().maxLifeTime = 2; //Current 10
+        bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true
+        shootForce = 3;//Current 3
+        //Gun stats
+        timeBetweenShooting = 0.5f; //Current 0.5
+        reloadTime = 1.5f; //Current 1.5
+        timeBetweenShots = 2f; //Current 2
+        magazineSize = 50; //Current 50
+        bulletsPerTap = 1; //Current 1
     }
 }
