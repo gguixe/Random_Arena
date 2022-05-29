@@ -202,7 +202,6 @@ public class GameManager : MonoBehaviour
                     spawn = spawn + 1;
                     if (spawn == SpawnPoints.Length + 1) spawn = 0;
                 }
-
                 Instantiate(PortalEffect, SpawnPoints[spawn].transform.position, Quaternion.identity);
                 Instantiate(SpawnEnemy, SpawnPoints[spawn].transform.position, Quaternion.identity);
             }

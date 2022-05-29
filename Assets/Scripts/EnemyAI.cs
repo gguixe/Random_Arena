@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     //Rotate Gun
     public GameObject pivot;
+    public GameObject weapon;
     //Distance
     public float attackDistance = 2;
 
@@ -28,6 +29,8 @@ public class EnemyAI : MonoBehaviour
     //Graphics
     public GameObject muzzleflash;
     public Sprite[] spriteList;
+    public Sprite[] spriteListBullet;
+    public Sprite[] spriteListWeapon;
     //Reference
     public Camera fpsCam;
     public Transform attackPoint;
@@ -237,6 +240,16 @@ public class EnemyAI : MonoBehaviour
         bullet.GetComponent<CustomBullet>().explodeOnTouch = true; //Current true //ALWAYS TRUE FOR NOW
         float RanshootForce = Random.Range(0.5f, 5); //Random Shoot force
         shootForce = RanshootForce;//Current 3 No Use
+
+        //BULLET SPRITE
+        int RanSpriteRenderer = Random.Range(0, spriteListBullet.Length); //Random Sprite
+        SpriteRenderer BulletSprite = bullet.GetComponent<SpriteRenderer>();
+        BulletSprite.sprite = spriteListBullet[RanSpriteRenderer];
+
+        //Adapt Box collider to size of sprite //That's not random
+        //Vector2 S = BulletSprite.sprite.bounds.size;
+        //bullet.GetComponent<BoxCollider2D>().size = S;
+        //bullet.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
     }
 
     public void GunRandomizer()
@@ -252,6 +265,11 @@ public class EnemyAI : MonoBehaviour
         magazineSize = RanmagazineSize; //Current 50
         int RanbulletsPerTap = Random.Range(1, 1);
         bulletsPerTap = RanbulletsPerTap; //Current 1
+
+        //Weapon SPRITE
+        int RanSpriteRenderer = Random.Range(0, spriteListWeapon.Length); //Random Sprite
+        SpriteRenderer WeaponSprite = weapon.GetComponent<SpriteRenderer>();
+        WeaponSprite.sprite = spriteListWeapon[RanSpriteRenderer];
     }
 
     public void DefaultVariables()
@@ -278,5 +296,17 @@ public class EnemyAI : MonoBehaviour
         timeBetweenShots = 2f; //Current 2
         magazineSize = 50; //Current 50
         bulletsPerTap = 1; //Current 1
+
+        //BULLET SPRITE
+        SpriteRenderer BulletSprite = bullet.GetComponent<SpriteRenderer>();
+        BulletSprite.sprite = spriteListBullet[0];
+        //WEAPON SPRITE
+        SpriteRenderer WeaponSprite = weapon.GetComponent<SpriteRenderer>();
+        WeaponSprite.sprite = spriteListWeapon[0];
+
+        //Adapt Box collider to size of sprite //That's not random
+        Vector2 BulletS = BulletSprite.sprite.bounds.size;
+        //bullet.GetComponent<BoxCollider2D>().size = BulletS; //Circle collider
+        //bullet.GetComponent<BoxCollider2D>().offset = new Vector2((BulletS.x / 2), 0);
     }
 }

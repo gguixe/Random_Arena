@@ -10,6 +10,7 @@ public class GunHandler : MonoBehaviour
     //Rotate Gun
     public GameObject pivot;
     public float offset = 0;
+    public GameObject weapon;
 
     //Bullet
     public GameObject bullet;
@@ -35,6 +36,9 @@ public class GunHandler : MonoBehaviour
     public GameObject muzzleflash;
     public TextMeshProUGUI ammunitionDisplay;
     public Sprite[] spriteList;
+    public Sprite skeleton;
+    public Sprite[] spriteListBullet;
+    public Sprite[] spriteListWeapon;
 
     //Randomizer
     int RanWeight;
@@ -186,6 +190,10 @@ public class GunHandler : MonoBehaviour
         PlayerHealth.PHealth = RanHealth;
 
         //int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
+        SpriteRenderer PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
+        PlayerSprite.sprite = skeleton;
+
+        //int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
         //SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
         //EnemySprite.sprite = spriteList[RanSpriteRenderer];
 
@@ -217,6 +225,11 @@ public class GunHandler : MonoBehaviour
         if (RanWeight >= 80) RanshootForce = Random.Range(10, 20); else if (RanWeight < 80 && RanWeight > 70) RanshootForce = Random.Range(1, 2); else RanshootForce = Random.Range(3, 5);
         //int RanshootForce = Random.Range(1, 10); //Random Shoot force //From other set of variables but anyway
         shootForce = RanshootForce;//Current 3 
+
+        //BULLET SPRITE
+        int RanSpriteRenderer = Random.Range(0, spriteListBullet.Length); //Random Sprite
+        SpriteRenderer BulletSprite = bullet.GetComponent<SpriteRenderer>();
+        BulletSprite.sprite = spriteListBullet[RanSpriteRenderer];
     }
 
     public void GunRandomizer()
@@ -232,6 +245,10 @@ public class GunHandler : MonoBehaviour
         magazineSize = RanmagazineSize; //Current 50
         int RanbulletsPerTap = Random.Range(1, 1); //Bullets per tap always 1
         bulletsPerTap = RanbulletsPerTap; //Current 1
+        //Weapon SPRITE
+        int RanSpriteRenderer = Random.Range(0, spriteListWeapon.Length); //Random Sprite
+        SpriteRenderer WeaponSprite = weapon.GetComponent<SpriteRenderer>();
+        WeaponSprite.sprite = spriteListWeapon[RanSpriteRenderer];
     }
 
     public void DefaultVariables()
@@ -254,5 +271,11 @@ public class GunHandler : MonoBehaviour
         timeBetweenShots = 0.3f; //Current 2
         magazineSize = 100; //Current 50
         bulletsPerTap = 1; //Current 1
+        //BULLET SPRITE
+        SpriteRenderer BulletSprite = bullet.GetComponent<SpriteRenderer>();
+        BulletSprite.sprite = spriteListBullet[0];
+        //WEAPON SPRITE
+        SpriteRenderer WeaponSprite = weapon.GetComponent<SpriteRenderer>();
+        WeaponSprite.sprite = spriteListWeapon[0];
     }
 }

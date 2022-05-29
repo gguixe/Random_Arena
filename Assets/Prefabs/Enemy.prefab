@@ -213,6 +213,7 @@ MonoBehaviour:
   target: {fileID: 0}
   player: {fileID: 0}
   pivot: {fileID: 490413825102128808}
+  weapon: {fileID: 490413825533358910}
   attackDistance: 1
   bullet: {fileID: 1678484330601847644, guid: 1de6d63eed7cb2040a47150806c64f61, type: 3}
   shootForce: 3
@@ -240,6 +241,45 @@ MonoBehaviour:
   - {fileID: -7753592136864742943, guid: b560acfed38c0ee48a72de04d538129f, type: 3}
   - {fileID: 2341571159850358954, guid: 4de7361b7236bbc4ea41f661e4828568, type: 3}
   - {fileID: 67203780413127644, guid: 7647221bf90607d45919cdb0c00edcd8, type: 3}
+  spriteListBullet:
+  - {fileID: -284186812366925589, guid: 36ccd9aaf127e8f429fff936e8ba9e98, type: 3}
+  - {fileID: -1635985323430085857, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 7671191023976181893, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -4833470527549775905, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 6311465489102313455, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 5023416660264964631, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -2074811809449147099, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -6558197796899628240, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -1903631445787226777, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -2811388556265902357, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 4879248188585718165, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -9126388158370690571, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 6930160059753878170, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -3755938266574474074, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 291533958979182844, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 1943732644421799339, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -5651674462296222951, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 7421177619412051403, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -1268557187834449837, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 6596467611406978471, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -8124366887479635123, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -5698646098402168980, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -2460159619586471325, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -7962223775867652029, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 6360893917635896345, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -6661018789380172802, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -1652427159343026478, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -264315679798985830, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 1938882349855675614, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -204703105881260922, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: 2548332905155816269, guid: e7c40669cb289f7448bdab50d6f2b610, type: 3}
+  - {fileID: -7914957615168794202, guid: 44df0d2a65b6bec45bc0c3aa4a086835, type: 3}
+  spriteListWeapon:
+  - {fileID: -8480078264861027228, guid: 36ccd9aaf127e8f429fff936e8ba9e98, type: 3}
+  - {fileID: 4707900041559482401, guid: 36ccd9aaf127e8f429fff936e8ba9e98, type: 3}
+  - {fileID: 7488772786520542072, guid: 36ccd9aaf127e8f429fff936e8ba9e98, type: 3}
+  - {fileID: 9193507701084492910, guid: 36ccd9aaf127e8f429fff936e8ba9e98, type: 3}
+  - {fileID: 5195367742596826311, guid: 36ccd9aaf127e8f429fff936e8ba9e98, type: 3}
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 809716516}
   allowInvoke: 1
@@ -310,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490413825533358910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18400002, y: 0, z: 0}
+  m_LocalPosition: {x: -0.205, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 490413825102128823}
@@ -354,7 +394,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -8480078264861027228, guid: 36ccd9aaf127e8f429fff936e8ba9e98,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

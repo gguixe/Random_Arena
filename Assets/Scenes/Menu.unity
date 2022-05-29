@@ -33573,8 +33573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.3999939, y: 8.5}
-  m_SizeDelta: {x: 1534.2468, y: 462.27216}
+  m_AnchoredPosition: {x: 0.4973, y: 1.38}
+  m_SizeDelta: {x: 1545.6304, y: 473.93628}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068634044
 MonoBehaviour:
@@ -33595,32 +33595,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Assets (Free):
-
-    Daniel Eddeland (https://opengameart.org/users/daneeklu)
-
-
-    Music
-    (Free):
-
-    "Summon the Rawk" Kevin MacLeod (incompetech.com)
-
-    Licensed
-    under Creative Commons: By Attribution 4.0 License
-
-    http://creativecommons.org/licenses/by/4.0/
-
-
-    Icons
-    (Free):
-
-    Delapouite, Skoll & John Colburn (game-icons.net)
-
-    https://creativecommons.org/licenses/by/3.0/
-
-
-
-'
+  m_text: "Assets (Free):\r\nLiberated Pixel Cup (https://opengameart.org/lpc-art-entries)
+    \r\n(https://creativecommons.org/licenses/by-sa/3.0/\u200B & https://www.gnu.org/licenses/gpl-3.0.html\u200B)\r\nDaniel
+    Eddeland, Joshua Taylor, Casper Nilsson\u200B, Johannes Sj\xF6lund\u200B, Clint
+    Bellanger\u200B, Matthew Nash\u200B\r\n\r\nMusic/Sounds (Free):\r\n\"Summon the
+    Rawk\" Kevin MacLeod (incompetech.com)\r\nLicensed under Creative Commons: By
+    Attribution 4.0 License\r\nhttp://creativecommons.org/licenses/by/4.0/\r\nChicken
+    sounds CC0 --> (https://freesound.org)\r\n\r\nIcons (Free):\r\nDelapouite, Skoll
+    & John Colburn (game-icons.net)\r\nhttps://creativecommons.org/licenses/by/3.0/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -33647,15 +33629,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29.45
+  m_fontSizeBase: 27
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -33677,7 +33659,7 @@ MonoBehaviour:
   m_isCullingEnabled: 0
   m_horizontalMapping: 0
   m_verticalMapping: 0
-  m_uvLineOffset: 0
+  m_uvLineOffset: 4453
   m_geometrySortingOrder: 0
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
