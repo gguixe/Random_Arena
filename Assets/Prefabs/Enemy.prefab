@@ -215,11 +215,11 @@ MonoBehaviour:
   attackDistance: 1
   bullet: {fileID: 1678484330601847644, guid: 1de6d63eed7cb2040a47150806c64f61, type: 3}
   shootForce: 3
-  timeBetweenShooting: 0.89171296
+  timeBetweenShooting: 0.5
   spread: 3
-  reloadTime: 3.2369046
-  timeBetweenShots: 3.3117049
-  magazineSize: 32
+  reloadTime: 1.5
+  timeBetweenShots: 2
+  magazineSize: 50
   bulletsPerTap: 1
   allowButtonHold: 1
   muzzleflash: {fileID: 3018192584431920843}
