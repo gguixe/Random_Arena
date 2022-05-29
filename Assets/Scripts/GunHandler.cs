@@ -175,6 +175,8 @@ public class GunHandler : MonoBehaviour
     public void GraphicRandomizer()
     {
         //Sprite Renderer & transform
+        SpriteRenderer PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
+        PlayerSprite.sprite = skeleton;
         RanWeight = Random.Range(1, 100);  //1-100%
         float RanScale;
         if (RanWeight >= 90) RanScale = Random.Range(0.5f, 0.7f); else if (RanWeight < 90 && RanWeight > 80) RanScale = Random.Range(3f, 4f); else RanScale = Random.Range(0.8f, 1.8f);
@@ -188,21 +190,6 @@ public class GunHandler : MonoBehaviour
         float RanHealth = Random.Range(80, 200); //Random Scale
         PlayerHealth.maxhealth = RanHealth;
         PlayerHealth.PHealth = RanHealth;
-
-        //int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
-        SpriteRenderer PlayerSprite = gameObject.GetComponent<SpriteRenderer>();
-        PlayerSprite.sprite = skeleton;
-
-        //int RanSpriteRenderer = Random.Range(0, spriteList.Length); //Random Sprite
-        //SpriteRenderer EnemySprite = gameObject.GetComponent<SpriteRenderer>();
-        //EnemySprite.sprite = spriteList[RanSpriteRenderer];
-
-        //Adapt Box collider to size of sprite //That's not random
-        //Vector2 S = EnemySprite.sprite.bounds.size;
-        //gameObject.GetComponent<BoxCollider2D>().size = S;
-        //gameObject.GetComponent<BoxCollider2D>().offset = new Vector2((S.x / 2), 0);
-
-        //Add speed, etc...here !!!!
     }
 
     public void BulletRandomizer()
