@@ -217,11 +217,11 @@ MonoBehaviour:
   attackDistance: 1
   bullet: {fileID: 1678484330601847644, guid: 1de6d63eed7cb2040a47150806c64f61, type: 3}
   shootForce: 3
-  timeBetweenShooting: 1.0683763
+  timeBetweenShooting: 0.69009554
   spread: 3
-  reloadTime: 3.9684315
-  timeBetweenShots: 4.556661
-  magazineSize: 26
+  reloadTime: 4.711447
+  timeBetweenShots: 3.686002
+  magazineSize: 38
   bulletsPerTap: 1
   allowButtonHold: 1
   muzzleflash: {fileID: 3018192584431920843}
@@ -395,7 +395,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 4707900041559482401, guid: 36ccd9aaf127e8f429fff936e8ba9e98,
+  m_Sprite: {fileID: 5195367742596826311, guid: 36ccd9aaf127e8f429fff936e8ba9e98,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
