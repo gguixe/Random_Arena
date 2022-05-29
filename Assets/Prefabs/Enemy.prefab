@@ -229,6 +229,17 @@ MonoBehaviour:
   - {fileID: -5738210801147870406, guid: 83d2e03cab2ea934dbe954b035b98b75, type: 3}
   - {fileID: 3014337850785632637, guid: 143cde2d1ed59da4a89fa13142ef54d1, type: 3}
   - {fileID: 8207710179804543168, guid: d2f35ef2408fb164f9d60354c662a308, type: 3}
+  - {fileID: 5732019020791052273, guid: df63d5637088c1a429ce6795dccc3de5, type: 3}
+  - {fileID: -5222508409296595901, guid: 16ca572447407034d81aea90d733b307, type: 3}
+  - {fileID: 5061293860092469308, guid: 7e85b401903a7604992088fe765b4df2, type: 3}
+  - {fileID: 2866502029772508092, guid: ac43bcf46113ebc47aca3ebffc35f645, type: 3}
+  - {fileID: -318219778754125578, guid: d74a845207abf4249b54758f549259e2, type: 3}
+  - {fileID: -8568042794190644651, guid: d54e40cc67456754d86eca87a71f36c4, type: 3}
+  - {fileID: -2311365994510824190, guid: c353311495fd59f448aae9454f2f1012, type: 3}
+  - {fileID: 5165697410979490411, guid: 16ca572447407034d81aea90d733b307, type: 3}
+  - {fileID: -7753592136864742943, guid: b560acfed38c0ee48a72de04d538129f, type: 3}
+  - {fileID: 2341571159850358954, guid: 4de7361b7236bbc4ea41f661e4828568, type: 3}
+  - {fileID: 67203780413127644, guid: 7647221bf90607d45919cdb0c00edcd8, type: 3}
   fpsCam: {fileID: 0}
   attackPoint: {fileID: 809716516}
   allowInvoke: 1
@@ -252,7 +263,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.26
-  m_BaseOffset: 1
+  m_BaseOffset: 0.13
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &3018192585716579358
