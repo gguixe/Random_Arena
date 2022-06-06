@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
 
         if (killedEnemies >= maxEnemies && (CurrentWave+1 != maxWaves))
         {
-            waveGUI.text = "WAVE FINISHED! PICK DEMONIC RANDOMIZER";
+            waveGUI.text = "WAVE FINISHED! \n PICK DEMONIC RANDOMIZER";
             ActiveWave = false;
             Powerups.SetActive(true);
 
@@ -169,8 +169,9 @@ public class GameManager : MonoBehaviour
         }
         else if(killedEnemies >= maxEnemies && (CurrentWave+1 == maxWaves))
         {
-            waveGUI.text = "VICTORY! THANKS FOR PLAYING!";
+            waveGUI.text = "VICTORY! \n THANKS FOR PLAYING!";
             ActiveWave = false;
+            RetryButton.SetActive(true);
             //killedEnemies = 0;
             //CurrentWave = 20; 
             //maxEnemies = 100; 
